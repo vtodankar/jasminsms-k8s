@@ -14,12 +14,6 @@ To enable docker
 eval $(minikube docker-env)
 ```
 
-Deploy Jasmin and related containers
-```bash
-
-```
-
-
 ## Usage to send SMS
 Deploy the K8S yamls
 ```bash
