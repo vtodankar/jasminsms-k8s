@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+spec:
+  selector:
+    matchLabels:
+      app: rabbitmq
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5672
+          resources:
+            limits:
+              cpu: "750m"
+              memory: "1024Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"

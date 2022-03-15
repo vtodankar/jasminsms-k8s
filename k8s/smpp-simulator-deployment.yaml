@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smpp
+spec:
+  selector:
+    matchLabels:
+      app: smpp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: smpp
+    spec:
+      containers:
+        - name: smpp
+          image: smpp
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 2775

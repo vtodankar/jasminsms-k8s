@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jasmin
+spec:
+  selector:
+    matchLabels:
+      app: jasmin
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jasmin
+    spec:
+      containers:
+        - name: jasmin
+          image: jookies/jasmin
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 2775
+            - containerPort: 8990
+            - containerPort: 1401
+          resources:
+            limits:
+              cpu: "750m"
+              memory: "1024Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
